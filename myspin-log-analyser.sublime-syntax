@@ -1,0 +1,69 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: mySPIN
+file_extensions:
+  - msp
+  - myspin
+  - txt
+first_line_match: ^\d\d\/\d\d\/\d\d\d\d-\d\d:\d\d:\d\d.*$
+scope: source.python
+contexts:
+  main:
+# {{{ General stuff
+    - match: '"'
+      scope: string
+
+    - match: '//.*$'
+      scope: comment.line
+
+    - match: '\b([Ss]tart|[Ss]top|[Ee]rror|fail|false|true|timeout.*[\d\.].*|terminate|shutdown|nil|null|disconnect)\w*\b'
+      scope: keyword
+
+    - match: '^.*ERROR/.*$'
+      scope: invalid.deprecated
+
+    - match: '^.*WARNING/.*$'
+      scope: storage
+
+    - match: '^.*FATAL\].*$'
+      scope: invalid
+# }}}
+# {{{ Match SDK and Protocol Version
+    - match: '\w*SDK [vV]ersion: \d\.\d\.\d(\.\d)?'
+      scope: constant.numeric
+
+    - match: '\w*Protocol: V\d\.\d\.\d'
+      scope: constant.numeric
+# }}}
+# {{{ Match app urls
+    - match: '[a-z]+\.[a-z]+\.[a-z]+(\.[a-zA-Z0-9-]*)*'
+      scope: string
+# }}}
+# {{{ Device Listener
+    - match: '^.*\[MSSEAFDeviceListener (accessoryDidDisconnectNotification|connectToAccessories].*accessory candidate).*$'
+      scope: storage.type
+
+    - match: '^.*MSSUDPDeviceListener (receiveIPAddressBroadcast|connectTo:.*(ignoring|connecting)|checkUnavailable.*lost available).*$'
+      scope: storage.type
+# }}}
+# {{{ Streams
+    - match: '^.*\[MSSGenericStreamDevice (init|dealloc).*$'
+      scope: variable.parameter
+
+    - match: '^.*\[MSSGenericStreamDevice.*NSStreamEventEndEncountered.*$'
+      scope: invalid
+
+    - match: '^.*\[MSSGenericStreamDevice.*NSStreamEventErrorOccurred.*$'
+      scope: invalid
+#  }}}
+# {{{ ScreenManager
+    - match: '\[MSSScreenManager (requestFrameDataForRect.*Received framebuffer request|.*received framebuffer request).*$'
+      scope: entity.name.class
+
+    - match: '\[MSSScreenManager (answerPendingRequests\].*answer pending request|requestFrameDataForRect.*answer framebuffer.*)'
+      scope: entity.name.class
+
+    - match: '\[MSSScreenManager requestFrameDataForRect.*saving incremental request as pending'
+      scope: entity.name.class
+# }}}
