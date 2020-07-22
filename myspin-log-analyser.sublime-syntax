@@ -28,6 +28,15 @@ contexts:
 
     - match: '^.*FATAL\].*$'
       scope: invalid
+
+    - match: '^.*Notification\].*$'
+      scope: storage.type
+
+    - match: '\[MySpinServerSDK (did|will|application).*$'
+      scope: storage.type
+
+    - match: '-\[\b\w*\b start[a-zA-Z]*\b\]'
+      scope: entity.name.class
 # }}}
 # {{{ Match SDK and Protocol Version
     - match: '\w*SDK [vV]ersion: \d\.\d\.\d(\.\d)?'
@@ -46,6 +55,12 @@ contexts:
 
     - match: '^.*MSSUDPDeviceListener (receiveIPAddressBroadcast|connectTo:.*(ignoring|connecting)|checkUnavailable.*lost available).*$'
       scope: storage.type
+
+    - match: '\[MSAIVIAvailabilityChecker (start|handleDiscoveredNetService:)\]'
+      scope: entity.name.class
+
+    - match: '\[MSAIVIAvailabilityChecker handleLostNetService.*unavailable$'
+      scope: invalid
 # }}}
 # {{{ Streams
     - match: '^.*\[MSSGenericStreamDevice (init|dealloc).*$'
@@ -66,4 +81,8 @@ contexts:
 
     - match: '\[MSSScreenManager requestFrameDataForRect.*saving incremental request as pending'
       scope: entity.name.class
+# }}}
+# {{{ ScreenCapturer
+    - match: 'MySpinScreenCapturingMethod.*\b'
+      scope: text.html.textile meta.paragraph.textile meta.tag.other.html meta.attribute-with-value.html entity.other.attribute-name.html
 # }}}
