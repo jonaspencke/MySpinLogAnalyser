@@ -1,0 +1,146 @@
+{
+    "name": "myspin-log-analyser",
+    "author": "Johannes Steudle",
+    "variables":
+    {
+    },
+    "globals":
+    {
+        "foreground": "snow",
+        "background": "#303030",
+        "caret": "white",
+        "invisibles": "grey",
+        "line_highlight": "color(lightgrey alpha(0.33))",
+        "selection": "grey"
+    },
+    "rules":
+    [
+        // {{{ General stuff
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "grey"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "white"
+        },
+        {
+            "name": "Keyword",
+            "scope": "keyword",
+            "foreground": "violet"
+        },
+        {
+            "name": "mySPIN Error",
+            "scope": "myspin.error",
+            "foreground": "#EEEEEE",
+            "background": "#B00000"
+        },
+        {
+            "name": "mySPIN Warning",
+            "scope": "myspin.warning",
+            "foreground": "#FFCF00"
+        },
+        {
+            "name": "mySPIN Fatal",
+            "scope": "myspin.fatal",
+            "foreground": "#FFFFFF",
+            "background": "#FF0000"
+        },
+        {
+            "name": "mySPIN Notification",
+            "scope": "myspin.notification",
+            "foreground": "cyan"
+        },
+        {
+            "name": "mySPIN Lifecycle",
+            "scope": "myspin.lifecycle",
+            "foreground": "#00FF00"
+        },
+        {
+            "name": "mySPIN Lifecycle Start",
+            "scope": "myspin.lifecycle.start",
+            "foreground": "#00FF00"
+        },
+        // }}}
+        // {{{ Match SDK and Protocol Version
+        {
+            "name": "mySPIN Version",
+            "scope": "myspin.version",
+            "foreground": "#FFA500"
+        },
+        {
+            "name": "mySPIN Version Protocol",
+            "scope": "myspin.version.protocol",
+            "foreground": "#FFA500"
+        },
+        // }}}
+        // {{{ Match app urls
+        {
+            "name": "mySPIN URL",
+            "scope": "myspin.url",
+            "foreground": "skyblue"
+        },
+        // }}}
+        // {{{ Device Listener
+        {
+            "name": "mySPIN Device",
+            "scope": "myspin.device",
+            "foreground": "cyan"
+        },
+        {
+            "name": "mySPIN Device Listener",
+            "scope": "myspin.device.listener",
+            "foreground": "#00A0F0",
+            "font_style": "italic"
+        },
+        {
+            "name": "mySPIN Device Checker",
+            "scope": "myspin.device.checker",
+            "foreground": "cyan"
+        },
+        {
+            "name": "mySPIN Device Checker Fail",
+            "scope": "myspin.device.checker.fail",
+            "foreground": "red"
+        },
+        // }}}
+        // {{{ Streams
+        {
+            "name": "mySPIN Device Stream",
+            "scope": "myspin.device.stream",
+            "foreground": "cyan"
+        },
+        {
+            "name": "mySPIN Device Stream Fail",
+            "scope": "myspin.device.stream.fail",
+            "foreground": "red"
+        },
+        // }}}
+        // {{{ ScreenManager
+        {
+            "name": "mySPIN Screen",
+            "scope": "myspin.screen",
+            "foreground": "#60AF00"
+        },
+        {
+            "name": "mySPIN Screen Request",
+            "scope": "myspin.screen.request",
+            "foreground": "#60D000"
+        },
+        {
+            "name": "mySPIN Screen Answer",
+            "scope": "myspin.screen.answer",
+            "foreground": "#60DF00"
+        },
+        // }}}
+        // {{{ ScreenCapturer
+        {
+            "name": "mySPIN Screen Capture",
+            "scope": "myspin.screen.capture",
+            "foreground": "#60AF00"
+        }
+        // }}}
+    ]
+}

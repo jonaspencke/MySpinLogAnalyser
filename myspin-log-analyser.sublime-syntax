@@ -7,7 +7,7 @@ file_extensions:
   - myspin
   - txt
 first_line_match: ^\d\d\/\d\d\/\d\d\d\d-\d\d:\d\d:\d\d.*$
-scope: source.python
+scope: text.myspin
 contexts:
   main:
 # {{{ General stuff
@@ -15,74 +15,74 @@ contexts:
       scope: string
 
     - match: '//.*$'
-      scope: comment.line
+      scope: comment
 
     - match: '\b([Ss]tart|[Ss]top|[Ee]rror|fail|false|true|timeout.*[\d\.].*|terminate|shutdown|nil|null|disconnect)\w*\b'
       scope: keyword
 
     - match: '^.*ERROR/.*$'
-      scope: invalid.deprecated
+      scope: myspin.error
 
     - match: '^.*WARNING/.*$'
-      scope: storage
+      scope: myspin.warning
 
     - match: '^.*FATAL\].*$'
-      scope: invalid
+      scope: myspin.fatal
 
     - match: '^.*Notification\].*$'
-      scope: storage.type
+      scope: myspin.notification
 
     - match: '\[MySpinServerSDK (did|will|application).*$'
-      scope: storage.type
+      scope: myspin.lifecycle
 
     - match: '-\[\b\w*\b start[a-zA-Z]*\b\]'
-      scope: entity.name.class
+      scope: myspin.lifecycle.start
 # }}}
 # {{{ Match SDK and Protocol Version
     - match: '\w*SDK [vV]ersion: \d\.\d\.\d(\.\d)?'
-      scope: constant.numeric
+      scope: myspin.version
 
     - match: '\w*Protocol: V\d\.\d\.\d'
-      scope: constant.numeric
+      scope: myspin.version.protocol
 # }}}
 # {{{ Match app urls
     - match: '[a-z]+\.[a-z]+\.[a-z]+(\.[a-zA-Z0-9-]*)*'
-      scope: string
+      scope: myspin.url
 # }}}
 # {{{ Device Listener
     - match: '^.*\[MSSEAFDeviceListener (accessoryDidDisconnectNotification|connectToAccessories].*accessory candidate).*$'
-      scope: storage.type
+      scope: myspin.device.listener
 
     - match: '^.*MSSUDPDeviceListener (receiveIPAddressBroadcast|connectTo:.*(ignoring|connecting)|checkUnavailable.*lost available).*$'
-      scope: storage.type
+      scope: myspin.device.listener
 
     - match: '\[MSAIVIAvailabilityChecker (start|handleDiscoveredNetService:)\]'
-      scope: entity.name.class
+      scope: myspin.device.checker
 
     - match: '\[MSAIVIAvailabilityChecker handleLostNetService.*unavailable$'
-      scope: invalid
+      scope: myspin.device.checker.fail
 # }}}
 # {{{ Streams
     - match: '^.*\[MSSGenericStreamDevice (init|dealloc).*$'
-      scope: variable.parameter
+      scope: myspin.device.stream
 
     - match: '^.*\[MSSGenericStreamDevice.*NSStreamEventEndEncountered.*$'
-      scope: invalid
+      scope: myspin.device.stream.fail
 
     - match: '^.*\[MSSGenericStreamDevice.*NSStreamEventErrorOccurred.*$'
-      scope: invalid
+      scope: myspin.device.stream.fail
 #  }}}
 # {{{ ScreenManager
     - match: '\[MSSScreenManager (requestFrameDataForRect.*Received framebuffer request|.*received framebuffer request).*$'
-      scope: entity.name.class
+      scope: myspin.screen.request
 
     - match: '\[MSSScreenManager (answerPendingRequests\].*answer pending request|requestFrameDataForRect.*answer framebuffer.*)'
-      scope: entity.name.class
+      scope: myspin.screen.answer
 
     - match: '\[MSSScreenManager requestFrameDataForRect.*saving incremental request as pending'
-      scope: entity.name.class
+      scope: myspin.screen.incremental
 # }}}
 # {{{ ScreenCapturer
     - match: 'MySpinScreenCapturingMethod.*\b'
-      scope: text.html.textile meta.paragraph.textile meta.tag.other.html meta.attribute-with-value.html entity.other.attribute-name.html
+      scope: myspin.screen.capture
 # }}}
