@@ -1,0 +1,5 @@
+// These settings override both User and Default settings for the myspin-log-analyser syntax
+{
+  "color_scheme": "myspin-log-analyser.sublime-color-scheme",
+  "word_wrap": true,
+}
