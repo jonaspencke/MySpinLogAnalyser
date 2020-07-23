@@ -1,0 +1,1 @@
+Added mySPIN settings file
