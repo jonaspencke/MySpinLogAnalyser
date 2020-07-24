@@ -17,7 +17,7 @@ contexts:
     - match: '//.*$'
       scope: comment
 
-    - match: '\b([Ss]tart|[Ss]top|[Ee]rror|fail|false|true|timeout.*[\d\.].*|terminate|shutdown|nil|null|disconnect)\w*\b'
+    - match: '\b([Ss]tart|[Ss]top|[Ee]rror|fail|false|true|(timeout|timer).*[\d\.].*|terminate|shutdown|nil|null|disconnect)\w*\b'
       scope: keyword
 
     - match: '^.*ERROR/.*$'
