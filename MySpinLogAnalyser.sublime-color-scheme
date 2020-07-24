@@ -56,12 +56,12 @@
         {
             "name": "mySPIN Lifecycle",
             "scope": "myspin.lifecycle",
-            "foreground": "#00FF00"
+            "foreground": "#60BF00"
         },
         {
             "name": "mySPIN Lifecycle Start",
             "scope": "myspin.lifecycle.start",
-            "foreground": "#00FF00"
+            "foreground": "#60BF00"
         },
         // }}}
         // {{{ Match SDK and Protocol Version
