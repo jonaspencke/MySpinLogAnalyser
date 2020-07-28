@@ -1,4 +1,10 @@
 {
   "color_scheme": "MySpinLogAnalyser.sublime-color-scheme",
   "word_wrap": true,
+  "extensions":
+  [
+    "txt",
+    "msp",
+    "myspin"
+  ]
 }
