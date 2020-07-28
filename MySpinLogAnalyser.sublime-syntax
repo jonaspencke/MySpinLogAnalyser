@@ -17,7 +17,7 @@ contexts:
     - match: '//.*$'
       scope: comment
 
-    - match: '\b([Ss]tart|[Ss]top|[Ee]rror|fail|false|true|(timeout|timer).*[\d\.].*|terminate|shutdown|nil|null|disconnect)\w*\b'
+    - match: '\b([Ss]tart|[Ss]top|[Ee]rror|fail|false|true|(timeout|timer).*[\d\.].*|terminate|shutdown|nil|null|disconnect|dealloc)\w*\b'
       scope: keyword
 
     - match: '^.*ERROR/.*$'
@@ -85,4 +85,8 @@ contexts:
 # {{{ ScreenCapturer
     - match: 'MySpinScreenCapturingMethod.*\b'
       scope: myspin.screen.capture
+# }}}
+# {{{ Transition
+    - match: '^.*handleElapsedTimeoutTimer.*$'
+      scope: myspin.error
 # }}}
